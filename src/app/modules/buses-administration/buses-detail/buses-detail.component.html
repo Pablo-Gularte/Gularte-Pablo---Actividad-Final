@@ -1,0 +1,8 @@
+<h5>Datos del colectivo</h5>
+<hr>
+<ul *ngIf="busSeleccionado">
+    <li>ID: {{ busSeleccionado.id }}</li>
+    <li>Patente: {{ busSeleccionado.patente }}</li>
+    <li>Total de asientos: {{ busSeleccionado.cantidadAsientos }}</li>
+    <li>Modelo: {{ busSeleccionado.modeloId }}</li>
+</ul>
