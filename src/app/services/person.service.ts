@@ -33,7 +33,8 @@ export class PersonService {
     return this.http.get<any[]>(this.resourceUrl, {observe: "response"}).pipe(
       catchError(err => {
             console.log("Ocurrio un error");
-            return throwError(() => "Paso algo");
+            console.log(err);
+            return throwError(() => "Error al intentar recuperar datos de la persona");
           }),
       );
   }

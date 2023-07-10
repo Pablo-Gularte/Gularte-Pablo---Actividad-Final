@@ -58,7 +58,7 @@ export class TripDetailComponent implements OnInit{
     this.personService.findAll().subscribe(res => {
       this.personList = res.body.map(json => new Person(json.id, json.age, json.name, json.lastName));
     })
-
+    
     this.route.paramMap.subscribe(params => {
       const id = params.get("id")
       console.log("El id que estoy editando es: " + id);
@@ -111,7 +111,7 @@ export class TripDetailComponent implements OnInit{
       body.id = this.selectedTrip.id;
 
       this.tripService.actualizarViaje(body).subscribe(res => {
-        this.matSnackBar.open("Se guardaron los cambios de la persona", "Cerrar");
+        this.matSnackBar.open("Se guardaron los cambios del viaje", "Cerrar");
         this.router.navigate(['trips', 'list']);
       }, error => {
         console.log(error);
@@ -120,7 +120,7 @@ export class TripDetailComponent implements OnInit{
     }
     else {
       this.tripService.crearViaje(body).subscribe(res => {
-        this.matSnackBar.open("Se creo la persona correctamente", "Cerrar");
+        this.matSnackBar.open("Se creo el viaje correctamente", "Cerrar");
         this.router.navigate(['trips', 'list']);
       }, error => {
         console.log(error);
@@ -135,6 +135,11 @@ export class TripDetailComponent implements OnInit{
 
     else
       return false
+  }
+
+  volverAtras() {
+    // this._location.back();
+    this.router.navigate(['trips','list'])
   }
 
 }

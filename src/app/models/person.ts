@@ -10,4 +10,8 @@ export class Person {
     this.nombre = nombre;
     this.apellido = apellido;
   }
+
+  public mostrarNombreYApellido() {
+    return this.nombre + ' ' + this.apellido;
+  }
 }

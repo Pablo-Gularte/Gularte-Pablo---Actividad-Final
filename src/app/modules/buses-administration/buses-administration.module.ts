@@ -6,6 +6,8 @@ import { BusesAdministrationRoutingModule } from './buses-administration-routing
 import { BusesListComponent } from "./buses-list/buses-list.component";
 import { BusesDetailComponent } from './buses-detail/buses-detail.component';
 import { MatIconModule } from '@angular/material/icon';
+import { MatButtonModule } from '@angular/material/button';
+import { MatSnackBarModule } from '@angular/material/snack-bar';
 
 
 @NgModule({
@@ -15,7 +17,9 @@ import { MatIconModule } from '@angular/material/icon';
     BusesAdministrationRoutingModule,
     CdkAccordionModule,
     NgFor,
-    MatIconModule
+    MatIconModule,
+    MatButtonModule,
+    MatSnackBarModule
   ],
   exports: [
     BusesListComponent,

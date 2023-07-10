@@ -1,6 +1,6 @@
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
 <h2>Administración de viajes</h2>
-<button mat-icon-button class="material-symbols-outlined" title="Agregar viaje">
+<button mat-icon-button class="material-symbols-outlined" (click)="crearPersona()" title="Agregar viaje">
   add_road
   </button>
 <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
@@ -44,9 +44,10 @@
       <button mat-icon-button title="Borrar viaje">
         <mat-icon>delete</mat-icon>
       </button>
-      <button mat-icon-button class="material-symbols-outlined" title="Ver pasajeros">
+      <button mat-icon-button (click)="verPasajeros()" class="material-symbols-outlined" title="Ver pasajeros">
         groups
         </button>
+
     </td>
   </ng-container>
 
