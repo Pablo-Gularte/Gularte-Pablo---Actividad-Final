@@ -16,6 +16,7 @@ export class BusesListComponent implements OnInit {
   items: Bus[] = [];
   expandedIndex = 0;
   busSeleccionado: Bus = null;
+  crearNuevo: boolean = false;
 
   constructor(
       private busService: BusService,
@@ -41,6 +42,7 @@ export class BusesListComponent implements OnInit {
   }
 
   crearBus() {
+    this.crearNuevo = true;
     this.router.navigate(['buses','create'])
   }
 

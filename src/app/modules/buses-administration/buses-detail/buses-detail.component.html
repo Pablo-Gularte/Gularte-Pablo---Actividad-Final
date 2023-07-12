@@ -1,8 +1,17 @@
 <h5>Datos del colectivo</h5>
+<button type="button" class="go-back-button" mat-icon-button (click)="volverAtras()">
+    <mat-icon>arrow_back</mat-icon>
+  </button>
 <hr>
-<ul *ngIf="busSeleccionado">
-    <li>ID: {{ busSeleccionado.id }}</li>
-    <li>Patente: {{ busSeleccionado.patente }}</li>
-    <li>Total de asientos: {{ busSeleccionado.cantidadAsientos }}</li>
-    <li>Modelo: {{ busSeleccionado.modeloId }}</li>
-</ul>
+<mat-grid-list cols="2">
+    <mat-grid-tile>
+        <ul *ngIf="busSeleccionado">
+            <li>ID: {{ busSeleccionado.id }}</li>
+            <li>Patente: {{ busSeleccionado.patente }}</li>
+            <li>Total de asientos: {{ busSeleccionado.cantidadAsientos }}</li>
+            <li>Modelo: {{ busSeleccionado.modeloId }}</li>
+        </ul>
+    </mat-grid-tile>
+    <mat-grid-tile>
+    </mat-grid-tile>
+</mat-grid-list>

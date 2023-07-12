@@ -1,37 +1,25 @@
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,0" />
 <h2>Administración de colectivos</h2>
-<button mat-icon-button class="material-symbols-outlined" title="Agregar colectivo">
+<button mat-icon-button class="material-symbols-outlined" (click)="crearBus()" title="Agregar colectivo">
   departure_board
 </button>
-<cdk-accordion class="example-accordion">
-    <cdk-accordion-item
-      *ngFor="let item of items; let index = index;"
-      #accordionItem="cdkAccordionItem"
-      class="example-accordion-item"
-      role="button"
-      tabindex="0"
-      [attr.id]="'accordion-header-' + index"
-      [attr.aria-expanded]="accordionItem.expanded"
-      [attr.aria-controls]="'accordion-body-' + index">
-      <div class="example-accordion-item-header" (click)="accordionItem.toggle()">
-        Colectivo de patente: {{ item.patente }}
-        <span class="example-accordion-item-description">
-          Click para {{ accordionItem.expanded ? 'cerrar' : 'ver detalles' }}
-        </span>
-        <button mat-icon-button (click)="seleccionarBus(item)" title="Modificar colectivo">
-          <mat-icon>edit</mat-icon>
-        </button>
-        <button mat-icon-button (click)="borrarBus(item)" title="Borrar colectivo">
-          <mat-icon>delete</mat-icon>
-        </button>
-      </div>
-      <div
-        class="example-accordion-item-body"
-        role="region"
-        [style.display]="accordionItem.expanded ? '' : 'none'"
-        [attr.id]="'accordion-body-' + index"
-        [attr.aria-labelledby]="'accordion-header-' + index">
-        <app-buses-detail [busSeleccionado]="item"></app-buses-detail>
-      </div>
-    </cdk-accordion-item>
-  </cdk-accordion>  
+<hr>
+  <table>
+    <tr *ngFor="let item of items">
+        <td>
+          <span>ID: {{ item.id }}</span><br>
+          <span>Patente: {{ item.patente }}</span><br>
+          <span>Total de aientos: {{ item.cantidadAsientos }}</span><br>
+          <span>ModeloID: {{ item.modeloId }}</span><br>
+          <br>
+        </td>
+        <td>
+          <button mat-icon-button (click)="seleccionarBus(item)" title="Modificar colectivo">
+            <mat-icon>edit</mat-icon>
+          </button>
+          <button mat-icon-button (click)="borrarBus(item)" title="Borrar colectivo">
+            <mat-icon>delete</mat-icon>
+          </button>
+        </td>
+    </tr>
+</table>
