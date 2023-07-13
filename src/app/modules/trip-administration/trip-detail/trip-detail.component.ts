@@ -74,8 +74,8 @@ export class TripDetailComponent implements OnInit{
       this.selectedTrip = res;
 
       this.tripForm.patchValue({
-        origen: res.lugarDestino,
-        destino: res.lugarSalida,
+        origen: res.lugarSalida,
+        destino: res.lugarDestino,
         fechaSalida: new Date(res.fechaSalida),
         fechaLlegada: new Date(res.fechaLlegada),
         colectivo: res.idColectivo,

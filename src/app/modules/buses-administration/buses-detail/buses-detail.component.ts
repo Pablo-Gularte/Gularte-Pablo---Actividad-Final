@@ -1,10 +1,13 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
+
+import { Model } from 'src/app/models/model';
 import { Bus } from 'src/app/models/bus';
 import { BusDTO } from 'src/app/services/bus.service';
 import { BusService } from '../../../services/bus.service';
 import { MatSnackBar } from '@angular/material/snack-bar';
+import { ModeloService } from 'src/app/services/modelo.service';
 
 
 @Component({
@@ -26,7 +29,8 @@ export class BusesDetailComponent implements OnInit {
       private router: Router,
       private fb: FormBuilder,
       private busService: BusService,
-      private matSnackBar: MatSnackBar
+      private matSnackBar: MatSnackBar,
+      private modeloService: ModeloService
     ) {
   }
   
@@ -64,6 +68,12 @@ export class BusesDetailComponent implements OnInit {
   
   borrarBus() {
     alert('Presioné el botón Borrar')
+  }
+
+  findModeloColectivo(colectivo: Bus) {
+    this.modeloService.findOne(colectivo.modeloId).subscribe(res => {
+      colectivo.modelo = new Model(res.id, res.nombre, res.marca);
+    })
   }
   
   guardarCambios() {

@@ -32,7 +32,7 @@
   </mat-form-field>
   
   <mat-form-field>
-    <mat-label>modeloId: </mat-label>
+    <mat-label>Modelo: </mat-label>
     <input matInput type="number" formControlName="modeloId" />
   
     <div
@@ -40,7 +40,7 @@
      (busForm.controls['modeloId'].dirty || busForm.controls['modeloId'].touched)"
     >
         <mat-hint *ngIf="busForm.controls['modeloId'].errors['required']" style="color: red;">
-            Por favor complete un valor para modeloId
+            Por favor complete un valor para el modelo del colectivo
         </mat-hint>
     </div>
   </mat-form-field>

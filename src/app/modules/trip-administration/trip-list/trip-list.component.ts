@@ -32,7 +32,7 @@ export class TripListComponent implements OnInit{
     this.tripService.findAll().subscribe(res => {
       this.dataSource = res.body.map(res => {
         console.log(res);
-        const trip = new Trip(res.id, res.lugarDestino, res.lugarSalida, res.fechaLlegada, res.fechaSalida, res.idColectivo, res.personaId);
+        const trip = new Trip(res.id, res.lugarSalida, res.lugarDestino, res.fechaLlegada, res.fechaSalida, res.idColectivo, res.personaId);
         this.loadColectivo(trip);
         this.listaPersonaId = res.personaId;
         return trip;
