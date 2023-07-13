@@ -3,15 +3,47 @@
     <mat-icon>arrow_back</mat-icon>
   </button>
 <hr>
-<mat-grid-list cols="2">
-    <mat-grid-tile>
-        <ul *ngIf="busSeleccionado">
-            <li>ID: {{ busSeleccionado.id }}</li>
-            <li>Patente: {{ busSeleccionado.patente }}</li>
-            <li>Total de asientos: {{ busSeleccionado.cantidadAsientos }}</li>
-            <li>Modelo: {{ busSeleccionado.modeloId }}</li>
-        </ul>
-    </mat-grid-tile>
-    <mat-grid-tile>
-    </mat-grid-tile>
-</mat-grid-list>
+<form [formGroup]="busForm" (ngSubmit)="guardarCambios()">
+  <mat-form-field>
+    <mat-label>Patente: </mat-label>
+    <input matInput type="text" formControlName="patente" />
+    <div
+        *ngIf="busForm.controls['patente'].invalid &&
+     (busForm.controls['patente'].dirty || busForm.controls['patente'].touched)"
+    >
+        <mat-hint *ngIf="busForm.controls['patente'].errors['required']" style="color: red;">
+            Por favor ingrese un valor para la patente dle colectivo
+        </mat-hint>
+    </div>
+  </mat-form-field>
+  
+  <mat-form-field>
+    <mat-label>Cantidad de asientos: </mat-label>
+    <input matInput type="text" formControlName="asientos" />
+  
+    <div
+        *ngIf="busForm.controls['asientos'].invalid &&
+     (busForm.controls['asientos'].dirty || busForm.controls['asientos'].touched)"
+    >
+        <mat-hint *ngIf="busForm.controls['asientos'].errors['required']" style="color: red;">
+            Por favor complete la cantidad de asientos del colectivo
+        </mat-hint>
+    </div>
+  </mat-form-field>
+  
+  <mat-form-field>
+    <mat-label>modeloId: </mat-label>
+    <input matInput type="number" formControlName="modeloId" />
+  
+    <div
+        *ngIf="busForm.controls['modeloId'].invalid &&
+     (busForm.controls['modeloId'].dirty || busForm.controls['modeloId'].touched)"
+    >
+        <mat-hint *ngIf="busForm.controls['modeloId'].errors['required']" style="color: red;">
+            Por favor complete un valor para modeloId
+        </mat-hint>
+    </div>
+  </mat-form-field>
+  
+  <button type="submit" mat-button [disabled]="busForm.invalid">Guardar Cambios</button>
+</form>

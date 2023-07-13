@@ -12,11 +12,8 @@ import { BusService } from 'src/app/services/bus.service';
   styleUrls: ['./buses-list.component.css']
 })
 export class BusesListComponent implements OnInit {
-  panelOpenState = false;
   items: Bus[] = [];
-  expandedIndex = 0;
   busSeleccionado: Bus = null;
-  crearNuevo: boolean = false;
 
   constructor(
       private busService: BusService,
@@ -37,17 +34,15 @@ export class BusesListComponent implements OnInit {
   }
 
   seleccionarBus(Bus:Bus) {
-    alert('seleccionarBus');
-    this.router.navigate(['buses','detail', Bus.id])
+    this.router.navigate(['buses','detail', Bus.id]);
   }
 
   crearBus() {
-    this.crearNuevo = true;
-    this.router.navigate(['buses','create'])
+    this.router.navigate(['buses','create']);
+    // this.router.navigate(['buses','create']);
   }
 
   borrarBus(Bus: Bus) {
-    alert('borrarBus');
     this.busService.borrarBus(Bus.id).subscribe(res => {
       this.matSnackBar.open("Se borro correctamente el colectivo", "Cerrar");
       this.cargarBuses();
