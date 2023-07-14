@@ -10,6 +10,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { BusesAdministrationRoutingModule } from './buses-administration-routing.module';
 import { BusesListComponent } from "./buses-list/buses-list.component";
 import { BusesDetailComponent } from './buses-detail/buses-detail.component';
+import { MatOptionModule } from '@angular/material/core';
 
 
 @NgModule({
@@ -24,7 +25,8 @@ import { BusesDetailComponent } from './buses-detail/buses-detail.component';
     MatInputModule,
     MatFormFieldModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    MatOptionModule
   ],
   exports: [
     BusesListComponent,

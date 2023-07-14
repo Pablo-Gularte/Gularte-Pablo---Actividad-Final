@@ -13,5 +13,4 @@ export class Bus {
     this.cantidadAsientos = cantidadAsientos;
     this.modeloId = modeloId;
   }
-
 }

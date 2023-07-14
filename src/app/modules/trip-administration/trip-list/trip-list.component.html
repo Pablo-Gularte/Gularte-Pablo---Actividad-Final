@@ -41,13 +41,9 @@
       <button mat-icon-button (click)="editarTrip(element)" title="Modificar viaje">
         <mat-icon>edit</mat-icon>
       </button>
-      <button mat-icon-button title="Borrar viaje">
+      <button mat-icon-button (click)="borrarTrip(element.id)" title="Borrar viaje">
         <mat-icon>delete</mat-icon>
       </button>
-      <button mat-icon-button (click)="verPasajeros()" class="material-symbols-outlined" title="Ver pasajeros">
-        groups
-        </button>
-
     </td>
   </ng-container>
 
